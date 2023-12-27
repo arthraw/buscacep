@@ -5,7 +5,6 @@ data class ViaCEPResponse(
     var logradouro : String,
     var complemento: String,
     var bairro : String,
-    var numero : String,
     var localidade : String,
     var uf : String
 )
