@@ -1,6 +1,6 @@
 package com.project.buscacep.data
 
-import com.project.buscacep.data.model.dao.ApiService
+import com.project.buscacep.data.model.services.ApiService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
