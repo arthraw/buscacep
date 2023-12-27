@@ -29,12 +29,28 @@ class CepViewModel : ViewModel()
                 if (response.isSuccessful) {
                     val post = response.body()
                     val postJson = Gson().toJson(post)
-                    _responseLiveData.postValue(postJson)
-                } else {
+                    val viaCep = Gson().fromJson(postJson, ViaCEPResponse::class.java)
+
+                    val postString = buildString {
+                        append("CEP : ${viaCep?.cep}\n")
+                        append("Localidade : ${viaCep?.localidade}\n")
+                        append("Bairro: ${viaCep?.bairro}\n")
+                        append("Logradouro: ${viaCep?.logradouro}\n")
+                        append("Complemento: ${viaCep?.complemento}\n")
+                        append("UF: ${viaCep?.uf}")
+                    }
+                    _responseLiveData.postValue(postString)
+                }
+                else if (response.code() == 400) {
+                    val postString = buildString {
+                        append("Erro: Cep invalido.")
+                    }
+                    _responseLiveData.postValue(postString)
+                }
+                else {
                     call.cancel()
                 }
             }
-
             override fun onFailure(call: Call<ViaCEPResponse>, t: Throwable) {
                 call.cancel()
                 throw t

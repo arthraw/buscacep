@@ -40,9 +40,7 @@ class MainActivity : AppCompatActivity() {
     private fun showAddress() {
         viewModel.responseLiveData.observe(this) { postJson ->
             address.text = postJson
-            println(address.text)
         }
-
         viewModel.makeSearch(cepSearch.text.toString())
     }
 }
