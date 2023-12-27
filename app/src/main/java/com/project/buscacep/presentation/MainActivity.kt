@@ -3,13 +3,17 @@ package com.project.buscacep.presentation
 import android.icu.text.StringSearch
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.project.buscacep.R
+import com.project.buscacep.data.model.entities.ViaCEPResponse
 import com.project.buscacep.presentation.cep.CepViewModel
+import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,19 +38,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showAddress() {
-        val text = viewModel.makeSearch(cepSearch.text.toString())
-        val mapAddress = text.execute().body()
-        val response = mapOf<String, String?>(
-            "CEP" to mapAddress?.cep,
-            "Logradouro" to mapAddress?.logradouro,
-            "Complemento" to mapAddress?.complemento,
-            "Bairro" to mapAddress?.bairro,
-            "Numero" to mapAddress?.numero,
-            "Localidade" to mapAddress?.localidade,
-            "UF" to mapAddress?.uf
-        )
+        viewModel.responseLiveData.observe(this) { postJson ->
+            address.text = postJson
+            println(address.text)
+        }
 
-        address.text = response.toString()
-
+        viewModel.makeSearch(cepSearch.text.toString())
     }
 }
