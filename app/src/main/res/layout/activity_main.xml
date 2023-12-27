@@ -4,46 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/buscacepcep"
     tools:context=".presentation.MainActivity">
 
     <EditText
         android:id="@+id/cep"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:background="@drawable/label_background"
         android:ems="10"
-        android:hint="Cep"
+        android:hint="@string/cep"
         android:inputType="number"
+        android:padding="10dp"
         android:textAlignment="viewStart"
-        android:textColor="#868686"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.387" />
+        app:layout_constraintVertical_bias="0.42" />
 
     <TextView
         android:id="@+id/fullAddress"
         android:layout_width="match_parent"
         android:layout_height="155dp"
         android:backgroundTint="@color/black"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/searchBtn"
         app:layout_constraintTop_toBottomOf="@+id/cep" />
 
 
     <Button
         android:id="@+id/searchBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#F1DB1C"
-        android:text="Pesquisar"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/roboto"
+        android:text="@string/pesquisar"
         android:textAlignment="center"
+        android:textColor="#01325A"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fullAddress"
         app:layout_constraintVertical_bias="0.551" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="276dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/label"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/cep"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.264"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.772"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
