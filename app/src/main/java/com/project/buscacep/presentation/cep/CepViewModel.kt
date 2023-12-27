@@ -1,19 +1,14 @@
 package com.project.buscacep.presentation.cep
 
-import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
 import com.project.buscacep.data.ApiClient
 import com.project.buscacep.data.model.entities.ViaCEPResponse
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.collect
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.await
-import retrofit2.awaitResponse
 
 class CepViewModel : ViewModel()
 {
