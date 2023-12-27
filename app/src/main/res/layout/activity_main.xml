@@ -24,15 +24,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.42" />
 
+
     <TextView
         android:id="@+id/fullAddress"
-        android:layout_width="match_parent"
-        android:layout_height="155dp"
+        android:layout_width="280dp"
+        android:layout_height="255dp"
         android:backgroundTint="@color/black"
         android:textColor="#FFFFFF"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/searchBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cep" />
-
 
     <Button
         android:id="@+id/searchBtn"
@@ -65,7 +68,7 @@
         app:layout_constraintHorizontal_bias="0.264"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.772"
+        app:layout_constraintVertical_bias="0.677"
         tools:ignore="MissingConstraints" />
 
 
