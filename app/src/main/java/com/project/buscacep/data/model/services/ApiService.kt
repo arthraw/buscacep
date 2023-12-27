@@ -1,4 +1,4 @@
-package com.project.buscacep.data.model.dao
+package com.project.buscacep.data.model.services
 
 import com.project.buscacep.data.model.entities.ViaCEPResponse
 import retrofit2.Call
