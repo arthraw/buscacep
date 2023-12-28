@@ -23,18 +23,25 @@ class CepViewModel : ViewModel()
             override fun onResponse(call: Call<ViaCEPResponse>, response: Response<ViaCEPResponse>) {
                 if (response.isSuccessful) {
                     val post = response.body()
-                    val postJson = Gson().toJson(post)
-                    val viaCep = Gson().fromJson(postJson, ViaCEPResponse::class.java)
+                    val postJson : String = Gson().toJson(post)
+                    val viaCep : ViaCEPResponse = Gson().fromJson(postJson, ViaCEPResponse::class.java)
 
-                    val postString = buildString {
-                        append("CEP : ${viaCep?.cep}\n")
-                        append("Localidade : ${viaCep?.localidade}\n")
-                        append("Bairro: ${viaCep?.bairro}\n")
-                        append("Logradouro: ${viaCep?.logradouro}\n")
-                        append("Complemento: ${viaCep?.complemento}\n")
-                        append("UF: ${viaCep?.uf}")
+                    if (viaCep.uf == null) {
+                        val postString = buildString {
+                            append("Erro: Cep invalido.")
+                        }
+                        _responseLiveData.postValue(postString)
+                    } else {
+                        val postString = buildString {
+                            append("CEP : ${viaCep.cep}\n")
+                            append("Localidade : ${viaCep.localidade}\n")
+                            append("Bairro: ${viaCep.bairro}\n")
+                            append("Logradouro: ${viaCep.logradouro}\n")
+                            append("Complemento: ${viaCep.complemento}\n")
+                            append("UF: ${viaCep.uf}")
+                        }
+                        _responseLiveData.postValue(postString)
                     }
-                    _responseLiveData.postValue(postString)
                 }
                 else if (response.code() == 400) {
                     val postString = buildString {
@@ -43,6 +50,10 @@ class CepViewModel : ViewModel()
                     _responseLiveData.postValue(postString)
                 }
                 else {
+                    val postString = buildString {
+                        append("Erro: Cep invalido.")
+                    }
+                    _responseLiveData.postValue(postString)
                     call.cancel()
                 }
             }
