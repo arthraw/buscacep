@@ -31,7 +31,7 @@
         android:layout_height="255dp"
         android:backgroundTint="@color/black"
         android:textColor="#FFFFFF"
-        android:textAlignment="center"
+        android:textAlignment="viewStart"
         app:layout_constraintBottom_toTopOf="@+id/searchBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
