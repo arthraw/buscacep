@@ -21,4 +21,4 @@ Caso queria entender mais afundo como funciona a API do ViaCep, deixo a document
 
 ## Exemplo de funcionamento do aplicativo
 
-![Tela principal]([buscacep/BuscaCep.png at main · arthraw/buscacep (github.com)](https://github.com/arthraw/buscacep/blob/main/BuscaCep.png))
+![Tela principal](https://github.com/arthraw/buscacep/blob/main/BuscaCep.png)
