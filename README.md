@@ -21,4 +21,4 @@ Caso queria entender mais afundo como funciona a API do ViaCep, deixo a document
 
 ## Exemplo de funcionamento do aplicativo
 
-![Tela principal](https://github.com/arthraw/buscacep/blob/main/BuscaCep.png)
+![tela_principal](https://github.com/arthraw/buscacep/blob/main/BuscaCep.png)
