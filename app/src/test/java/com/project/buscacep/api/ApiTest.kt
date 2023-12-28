@@ -18,7 +18,7 @@ import javax.security.auth.callback.Callback
 
 class ApiTest {
     @Test
-    fun `Request a address, status code of response`() {
+    fun `request a address, status code of response`() {
         val cep = "01001000"
         val apiService = ApiClient.create()
         val getAddress = apiService.getPost(cep)
@@ -29,7 +29,7 @@ class ApiTest {
     }
 
     @Test
-    fun `Request a invalid address, status code error`() {
+    fun `request a invalid address, status code error`() {
         val cep = "0"
         val apiService = ApiClient.create()
         val getAddress = apiService.getPost(cep)
